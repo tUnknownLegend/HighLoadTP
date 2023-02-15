@@ -26,6 +26,6 @@ Zoom — сервис для организации видеоконференц
 
 *Источник: [Zippia](https://www.zippia.com/advice/zoom-meeting-statistics/#:~:text=Zoom%E2%80%99s-,biggest,-competitors%20are%20Microsoft)*
 
-[![Статистика использования по странам](/img/zoom-usage-by-country.jpg)
+![Статистика использования по странам](/img/zoom-usage-by-country.jpg)
 
 *Источник: [Wallstreetzen](https://www.wallstreetzen.com/stocks/us/nasdaq/zm/statistics#:~:text=Zoom%20Traffic%20by%20Country), [SimilarWeb](https://www.similarweb.com/website/zoom.us/#overview)*
