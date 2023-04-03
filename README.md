@@ -126,7 +126,7 @@ $$2.56 * (500 * 10^6 * 60) = 76800\text{ тбит/день записей.}$$
 
 # 3. Логическая схема
 
-![image](https://user-images.githubusercontent.com/57019979/229625146-28cbfee4-5f44-4bd7-a821-4daaffa47e04.png)
+![image](https://user-images.githubusercontent.com/57019979/229633348-612c042b-08ab-425c-996d-0eb45c22e367.png)
 
 |  Тип данных 	|  Размер 	|
 |---	|---	|
