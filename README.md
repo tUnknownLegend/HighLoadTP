@@ -174,3 +174,4 @@ $$(4 + 8 * 2 + 100) * 400 * 10^6 = 48\text{ Гбайт}$$
 | PostgreSQL, Tarantool | Database | Open Source, большое сообщество |
 | Amazon S3 | Media | Большое количество CDN, большое сообщество |
 | Kotlin Multiplatform | Mobile | Универсальность, быстрота разработки |
+| nginx | load balancer, frontend server | Большое сообщество, скорость работы |
