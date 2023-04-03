@@ -128,7 +128,7 @@ $$2.56 * (500 * 10^6 * 60) = 76800\text{ тбит/день записей.}$$
 
 ![image](https://user-images.githubusercontent.com/57019979/229625146-28cbfee4-5f44-4bd7-a821-4daaffa47e04.png)
 
-|  тип данных 	|  размер 	|
+|  Тип данных 	|  Размер 	|
 |---	|---	|
 | text | [100 byte](https://www.postgresql.org/docs/current/datatype-character.html) |
 | bigserial, bigint | [8 bytes](https://www.postgresql.org/docs/8.1/datatype.html#:~:text=1%20to%202147483647-,bigserial,-8%20bytes) |
@@ -167,3 +167,10 @@ $$(4 + 8 * 2 + 100) * 400 * 10^6 = 48\text{ Гбайт}$$
 
 # 5. Технологии
 
+|  Технология 	|  Область применения 	| Обоснование выбора |
+|---	|---	|--- |
+| Typescript, React | Frontend | Статистическая типизация, большое коммьнити и широкая поддержка |
+| Golang, gingonic | Backend | Статическая типизация, скорость работы |
+| PostgreSQL, Tarantool | Database | Open Source, большое коммьнити |
+| Amazon S3 | Media | Большое количество CDN, большое коммьнити |
+| Kotlin Multiplatform | Mobile | Универсальность, быстрота разработки |
