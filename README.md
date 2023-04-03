@@ -138,6 +138,19 @@ $$2.56 * (500 * 10^6 * 60) = 76800\text{ тбит/день записей.}$$
 | varchar(1) | [1 byte](https://www.postgresql.org/docs/current/datatype-character.html) |
 
 Рассчет размера хранилища для таблиц.
+Будем пологаться на 400 тыс. пользователей из рассчета [MAU](https://github.com/tUnknownLegend/HighLoadTP#2-%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82-%D0%BD%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8). Так же имеем [500 тыс.](https://www.searchlogistics.com/grow/statistics/zoom-user-statistics/#:~:text=They%20have%20almost-,470%2C000,-paying%20business%20customers) пользоватетлей с сохранением чатов, досок и записей
+
+1. `users`
+$$(50 * 3 + 30 * 2 + 8) * 400 * 10^6 = 84.2\text{ Гбайт}$$
+
+2. `meetings`
+$$(1 + 8 * 3 + 4 + 30 + 100) * 400 * 10^6 = 63.6\text{ Гбайт}$$
+
+3. `records, chats, whiteboards`
+$$(8 * 2 + 100) * 500 * 10^3 = 0.058\text{ Гбайт}$$
+
+4. `sessions`
+$$(4 + 8 * 2 + 100) * 400 * 10^6 = 48\text{ Гбайт}$$
 
 
 # 4. Физическая схема
@@ -148,9 +161,9 @@ $$2.56 * (500 * 10^6 * 60) = 76800\text{ тбит/день записей.}$$
 Реплецируем базу данных по модели slave-master, slave занимется чтение, master - записью. 
 Для репликации будем использовать разбиение на шарды.
 Балансировка между шардами кластера будет происходить по ID. Шардирование имеет смысл сделать для таблиц 
-users, meetings, chats, whiteboards, records.
+`users, meetings, chats, whiteboards, records.`
 
-Индексы сделаем на поле email в таблице users и на поле link в meetings 
+Индексы сделаем на поле `email` в таблице `users` и на поле `link` в `meetings `
 
 # 5. Технологии
 
