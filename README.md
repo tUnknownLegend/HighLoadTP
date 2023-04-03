@@ -126,6 +126,31 @@ $$2.56 * (500 * 10^6 * 60) = 76800\text{ тбит/день записей.}$$
 
 # 3. Логическая схема
 
-![image](https://user-images.githubusercontent.com/57019979/226996946-332aadd7-4ae4-44ef-86b0-d187f05ebe8a.png)
+![image](https://user-images.githubusercontent.com/57019979/229625146-28cbfee4-5f44-4bd7-a821-4daaffa47e04.png)
 
-*Примерная схема, может быть изменена после проектировангия физической схемы*.
+|  тип данных 	|  размер 	|
+|---	|---	|
+| text | [100 byte](https://www.postgresql.org/docs/current/datatype-character.html) |
+| bigserial, bigint | [8 bytes](https://www.postgresql.org/docs/8.1/datatype.html#:~:text=1%20to%202147483647-,bigserial,-8%20bytes) |
+| time | [8 bytes](https://www.postgresql.org/docs/current/datatype-datetime.html#:~:text=1%20day-,time,-%5B%20(p)%20%5D%20%5B%20without) |
+| date | [4 bytes](https://www.postgresql.org/docs/current/datatype-datetime.html) |
+| bool | [1 byte](https://www.postgresql.org/docs/current/datatype-boolean.html) |
+| varchar(1) | [1 byte](https://www.postgresql.org/docs/current/datatype-character.html) |
+
+Рассчет размера хранилища для таблиц.
+
+
+# 4. Физическая схема
+
+В качесте основной СУБД будем использовать PostgreSQL. 
+Сессии будем хранить в in-memory БД Tarantool.
+
+Реплецируем базу данных по модели slave-master, slave занимется чтение, master - записью. 
+Для репликации будем использовать разбиение на шарды.
+Балансировка между шардами кластера будет происходить по ID. Шардирование имеет смысл сделать для таблиц 
+users, meetings, chats, whiteboards, records.
+
+Индексы сделаем на поле email в таблице users и на поле link в meetings 
+
+# 5. Технологии
+
