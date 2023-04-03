@@ -169,8 +169,8 @@ $$(4 + 8 * 2 + 100) * 400 * 10^6 = 48\text{ Гбайт}$$
 
 |  Технология 	|  Область применения 	| Обоснование выбора |
 |---	|---	|--- |
-| Typescript, React | Frontend | Статистическая типизация, большое коммьнити и широкая поддержка |
+| Typescript, React | Frontend | Статистическая типизация, большое сообщество и широкая поддержка |
 | Golang, gingonic | Backend | Статическая типизация, скорость работы |
-| PostgreSQL, Tarantool | Database | Open Source, большое коммьнити |
-| Amazon S3 | Media | Большое количество CDN, большое коммьнити |
+| PostgreSQL, Tarantool | Database | Open Source, большое сообщество |
+| Amazon S3 | Media | Большое количество CDN, большое сообщество |
 | Kotlin Multiplatform | Mobile | Универсальность, быстрота разработки |
