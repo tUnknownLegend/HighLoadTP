@@ -192,11 +192,22 @@ $$(4 + 8 * 2 + 100) * 400 * 10^6 = 48\text{ Гбайт}$$
 Конфигурация:
 1. Равномерно распределим нагрузку на балансировщики с помощью Latency-based DNS
 2. На уровне nginx будем балансировать с помощью L7 nginx Weighted Round-Robin-балансировки
-3. PostgreSQL: 1 Master, 3 Slave
-4. Tarantool: 1 Master
+3. PostgreSQL with `users` table: 1 Master, 3 Slaves
+3. PostgreSQL with `meetings` & `records` table: 1 Master, 3 Slaves
+5. Tarantool: 4 Host-master x 2 replicas
 
 # 7. Список серверов
 
+Frontend:
 
+Backend API:
 
+Backend Live Conference:
 
+PostgreSQL:
+
+$$2 * (1 + 3) + 2 = 10$$
+
+Tarantool:
+
+$$4 * 2 + 2 = 10$$
