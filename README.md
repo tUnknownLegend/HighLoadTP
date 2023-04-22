@@ -180,3 +180,23 @@ $$(4 + 8 * 2 + 100) * 400 * 10^6 = 48\text{ Гбайт}$$
 | Amazon S3 | Media | Большое количество CDN, большое сообщество |
 | Kotlin Multiplatform | Mobile | Универсальность, быстрота разработки |
 | nginx | Load balancer, frontend server | Большое сообщество, скорость работы |
+
+# 6. Схема проекта
+
+1. Бекенд сервера с API
+2. Фронтент серевера (nginx)
+3. Балансировщик (nginx)
+4. Сервера для статики (S3)
+5. Сервера для поддержки конференций (on fly encoding/decoding + distribution)
+
+Конфигурация:
+1. Равномерно распределим нагрузку на балансировщики с помощью Latency-based DNS
+2. На уровне nginx будем балансировать с помощью L7 nginx Weighted Round-Robin-балансировки
+3. PostgreSQL: 1 Master, 3 Slave
+4. Tarantool: 1 Master
+
+# 7. Список серверов
+
+
+
+
