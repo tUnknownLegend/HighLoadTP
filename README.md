@@ -139,7 +139,7 @@ $$2.56 * \frac{500 * 10^3 * 60 * 60 * 24}{10} = 1382\text{ тбайт/день �
 
 # 3. Логическая схема
 
-![image](https://user-images.githubusercontent.com/57019979/233810009-31d2c89c-56dc-4a17-a285-27ababb57288.png)
+![image](https://user-images.githubusercontent.com/57019979/236647534-57dac393-3662-4724-8b4a-3fc3c0734cea.png)
 
 |  Тип данных 	|  Размер 	|
 |---	|---	|
@@ -149,6 +149,7 @@ $$2.56 * \frac{500 * 10^3 * 60 * 60 * 24}{10} = 1382\text{ тбайт/день �
 | date | [4 bytes](https://www.postgresql.org/docs/current/datatype-datetime.html) |
 | bool | [1 byte](https://www.postgresql.org/docs/current/datatype-boolean.html) |
 | varchar(1) | [1 byte](https://www.postgresql.org/docs/current/datatype-character.html) |
+| timestamp | [8 byte](https://www.postgresql.org/docs/current/datatype-datetime.html#:~:text=with%20time%20zone-,8%20bytes,-both%20date%20and) |
 
 Рассчет размера хранилища для таблиц.
 Будем пологаться на 400 тыс. пользователей из рассчета [MAU](https://github.com/tUnknownLegend/HighLoadTP#2-%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82-%D0%BD%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8). Так же имеем [500 тыс.](https://www.searchlogistics.com/grow/statistics/zoom-user-statistics/#:~:text=They%20have%20almost-,470%2C000,-paying%20business%20customers) пользоватетлей с сохранением чатов, досок и записей
@@ -164,6 +165,9 @@ $$(8 * 2 + 4 * 100 + 2 * 30) * 500 * 10^3 = 0.238\text{ Гбайт}$$
 
 4. `sessions`
 $$(4 + 8 * 2 + 100) * 400 * 10^6 = 48\text{ Гбайт}$$
+
+5. `chats`
+$$(4 + 8 * 3 + 100 + 101) * 500 * 10^3 = 0.1145\text{ Гбайт}$$
 
 Данные о записи будут требоваться все вместе, поэтому нет смысла разбивать их на отдельные таблицы с чатами, досками и записью.
 
